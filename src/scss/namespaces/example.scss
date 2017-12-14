@@ -1,0 +1,52 @@
+/* ==================================================
+   example.html （Nunjucksを通していない。主にフォーム要素確認用）
+ ================================================== */
+.wrap {
+	width: 100%;
+	padding: 0 14px;
+	@include media-pc {
+		width: $width-pc;
+		margin: 0 auto;
+	}
+}
+.ct-copy {
+	@include clearfix;
+	font-size: 2rem;
+}
+.main-flex {
+	display: flex;
+	&_m2 {
+		padding: 20px;
+	}
+}
+.main-flex_m1 {
+	padding: 10px;
+	opacity: .6;
+}
+.fonttest {
+	font-family: "Noto Sans Japanese", Meiryo;
+	font-size: 1.8rem;
+}
+/* --------------------------------------------------
+   個別ページフォーム
+ -------------------------------------------------- */
+.example-page-form {
+	@include media-tab {
+		display: flex;
+	}
+	.title {
+		@include media-tab {
+			flex: 0 0 100px; // 固定
+		}
+		.col-form-legend {
+			@include media-tab {
+				padding-top: 0;
+			}
+		}
+	}
+	.input {
+		@include media-tab {
+			flex: auto; // 1 1 auto
+		}
+	}
+}

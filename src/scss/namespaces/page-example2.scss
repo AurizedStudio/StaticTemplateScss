@@ -1,0 +1,77 @@
+/* ==================================================
+   page-example2.html （アニメーション/Grid 確認用）
+ ================================================== */
+/* --------------------------------------------------
+   Grid
+ -------------------------------------------------- */
+.magazine {
+	@include media-tab {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-rows: auto auto;
+	}
+}
+.magazine-item {
+	margin: 0 0 40px 0;
+	@include media-tab {
+		margin: 0 5px 40px 5px;
+	}
+}
+.magazine-today {
+	@include grid-column(1, 3);
+	@include grid-row(1, 3);
+}
+.magazine-past01 {
+	@include grid-column(3, 4);
+	@include grid-row(1, 2);
+}
+.magazine-past02 {
+	@include grid-column(4, 5);
+	@include grid-row(1, 2);
+}
+.magazine-past03 {
+	@include grid-column(1, 2);
+	@include grid-row(3, 4);
+}
+.magazine-past04 {
+	@include grid-column(2, 3);
+	@include grid-row(3, 4);
+}
+.magazine-pickup {
+	@include grid-column(3, 5);
+	@include grid-row(2, 3);
+}
+.magazine-today__img,
+.magazine-item__img,
+.magazine-pickup__img {
+	margin: 0 0 6px 0;
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+}
+.magazine-today__title,
+.magazine-item__title,
+.magazine-pickup__title {
+	margin: 0 0 4px 0;
+}
+
+/* --------------------------------------------------
+   個別ページフアニメーション
+ -------------------------------------------------- */
+@keyframes fade-in-load {
+	0% {
+		opacity: 0
+	}
+	100% {
+		opacity: 1
+	}
+}
+.magazine-today__img,
+.magazine-item__img,
+.magazine-pickup__img {
+//	animation-name: fade-in-load;
+//	animation-duration: 3s;
+//	animation-timing-function: ease-in-out;
+	animation: fade-in-load 3s ease-in-out
+}
