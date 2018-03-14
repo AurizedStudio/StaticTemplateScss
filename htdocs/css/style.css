@@ -916,6 +916,10 @@ select.form-control:focus::-ms-value {
   clear: both;
 }
 
+.tac {
+  text-align: center;
+}
+
 .img-responsive {
   max-width: 100%;
   height: auto;
@@ -924,6 +928,24 @@ select.form-control:focus::-ms-value {
 .img-widemax {
   width: 100%;
   height: auto;
+}
+
+@-webkit-keyframes fadein-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadein-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 767px) {
@@ -938,6 +960,12 @@ select.form-control:focus::-ms-value {
   }
 }
 
+@media (max-width: 767px) {
+  .visible-sp-inline {
+    display: inline;
+  }
+}
+
 @media (min-width: 768px) {
   .hidden-tab {
     display: none;
@@ -947,6 +975,30 @@ select.form-control:focus::-ms-value {
 @media (min-width: 768px) {
   .visible-tab {
     display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .visible-tab-inline {
+    display: inline;
+  }
+}
+
+@media (min-width: 980px) {
+  .hidden-pc {
+    display: none;
+  }
+}
+
+@media (min-width: 980px) {
+  .visible-pc {
+    display: block;
+  }
+}
+
+@media (min-width: 980px) {
+  .visible-pc-inline {
+    display: inline;
   }
 }
 
