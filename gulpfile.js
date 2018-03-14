@@ -26,6 +26,7 @@ function plumberWithNotify() {
 
 gulp.task('compileHtml', function () {
 	return gulp.src(path.srcHtml + 'page/**/*.html')
+	.pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
 	.pipe(nunjucksRender({
 		path: [path.srcHtml] // String or Array
 	}))

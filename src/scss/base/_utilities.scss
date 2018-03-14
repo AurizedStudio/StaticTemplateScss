@@ -13,6 +13,9 @@
 .clearfix {
 	@include clearfix;
 }
+.tac {
+	text-align: center;
+}
 .img-responsive {
 	max-width: 100%;
 	height: auto;
@@ -20,6 +23,14 @@
 .img-widemax {
 	width: 100%;
 	height: auto;
+}
+@keyframes fadein-opacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 .hidden-sp {
 	@include media-sp {
@@ -31,6 +42,11 @@
 		display: block;
 	}
 }
+.visible-sp-inline {
+	@include media-sp {
+		display: inline;
+	}
+}
 .hidden-tab {
 	@include media-tab {
 		display: none;
@@ -39,6 +55,26 @@
 .visible-tab {
 	@include media-tab {
 		display: block;
+	}
+}
+.visible-tab-inline {
+	@include media-tab {
+		display: inline;
+	}
+}
+.hidden-pc {
+	@include media-pc {
+		display: none;
+	}
+}
+.visible-pc {
+	@include media-pc {
+		display: block;
+	}
+}
+.visible-pc-inline {
+	@include media-pc {
+		display: inline;
 	}
 }
 .bdtnone {
