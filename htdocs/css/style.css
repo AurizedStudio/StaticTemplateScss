@@ -166,19 +166,6 @@ svg:not(:root) {
   overflow: hidden;
 }
 
-a,
-area,
-button,
-[role="button"],
-input:not([type="range"]),
-label,
-select,
-summary,
-textarea {
-  -ms-touch-action: manipulation;
-      touch-action: manipulation;
-}
-
 table {
   border-collapse: collapse;
 }
@@ -310,6 +297,7 @@ output {
 
 summary {
   display: list-item;
+  cursor: pointer;
 }
 
 template {
