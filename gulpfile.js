@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var browserSync = require('browser-sync').create();
+var browserSync = require('browser-sync');
 var plumber = require('gulp-plumber'); // エラーが起きてもwatchを終了しない
 var notify = require('gulp-notify'); // エラーが起こったときの通知
 var nunjucksRender = require('gulp-nunjucks-render');
@@ -18,12 +18,6 @@ var path = {
 	destCss: './htdocs/css/'
 };
 
-// エラー通知が必要なタスク使用。通知が必要ない場合には通常のplumberをとるようにする
-// .pipe(plumberWithNotify()) or .pipe(plumber())
-function plumberWithNotify() {
-	return plumber({errorHandler: notify.onError("<%= error.message %>")});
-}
-
 gulp.task('compileHtml', function () {
 	return gulp.src(path.srcHtml + 'page/**/*.html')
 	.pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
@@ -31,7 +25,8 @@ gulp.task('compileHtml', function () {
 		path: [path.srcHtml] // String or Array
 	}))
 	.pipe(replace(/\n+/g, '\n')) // 2行以上の改行を1行にする
-	.pipe(gulp.dest(path.dest));
+	.pipe(gulp.dest(path.dest))
+	.pipe(browserSync.stream());
 });
 
 gulp.task('compileScss', function() {
@@ -43,7 +38,8 @@ gulp.task('compileScss', function() {
 		// .pipe(replace(/\n+/g, '\n')) // 2行以上の改行を1行にする 納品時の整形に使用
 		// .pipe(csscomb()) // 納品時の整形に使用
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(path.destCss));
+		.pipe(gulp.dest(path.destCss))
+		.pipe(browserSync.stream());
 });
 
 gulp.task('serve', ['compileScss', 'compileHtml'], function(){
@@ -54,13 +50,14 @@ gulp.task('serve', ['compileScss', 'compileHtml'], function(){
 		},
 		open: 'external'
 	});
-	gulp.watch(path.srcScss + '**/*.scss', ['compileScss']);
-	gulp.watch(path.srcHtml + '**/*.html', ['compileHtml']);
 	gulp.watch([
-		path.dest + '**/*.html',
-		path.dest + '**/*.css',
 		path.dest + '**/*.js'
 	]).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['serve']);
+gulp.task('watch', function(){
+	gulp.watch(path.srcScss + '**/*.scss', ['compileScss']);
+	gulp.watch(path.srcHtml + '**/*.html', ['compileHtml']);
+})
+
+gulp.task('default', ['watch', 'serve']);
