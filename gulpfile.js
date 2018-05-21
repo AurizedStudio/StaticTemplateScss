@@ -35,8 +35,8 @@ gulp.task('compileScss', function() {
 		.pipe(sourcemaps.init())
 		.pipe(sass({outputStyle: 'expanded'}))
 		.pipe(postcss([ autoprefixer({browsers: ['last 2 versions'], grid: true}) ]))
-		// .pipe(replace(/\n+/g, '\n')) // 2行以上の改行を1行にする 納品時の整形に使用
-		// .pipe(csscomb()) // 納品時の整形に使用
+		// .pipe(replace(/\n+/g, '\n')) // 2行以上の改行を1行にする 納品時に整形する場合に使用
+		// .pipe(csscomb()) // 納品時に整形する場合に使用
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(path.destCss))
 		.pipe(browserSync.stream());
