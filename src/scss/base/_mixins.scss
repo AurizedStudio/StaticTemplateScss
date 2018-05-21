@@ -59,18 +59,6 @@
 	background-repeat: repeat-x;
 }
 
-// CSS Grid Layout for ie11
-@mixin grid-column($start, $end) {
-	grid-column-start: $start;
-	grid-column-end: $end;
-	-ms-grid-column-span: $end - $start;
-}
-@mixin grid-row($start, $end) {
-	grid-row-start: $start;
-	grid-row-end: $end;
-	-ms-grid-row-span: $end - $start;
-}
-
 // mediaquery
 @mixin media-sp {
 	@media (max-width: $breakpoint-sp) {
