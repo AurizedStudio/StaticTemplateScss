@@ -1,0 +1,127 @@
+/* ==================================================
+   page-example.html
+ ================================================== */
+.page-example {
+	&.is-page-example {
+		overflow: hidden;
+	}
+}
+/* --------------------------------------------------
+   メニュー全体
+ -------------------------------------------------- */
+.menu {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 70px;
+	background-color: #fff;
+	@include media-tab {
+		position: static;
+		height: auto;
+	}
+}
+/* --------------------------------------------------
+   SP版メニューを開いたときに背景となる
+ -------------------------------------------------- */
+.menu-inner {
+	&.is-menu-inner {
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 100vh;
+		background-color: rgba(255,255,255,.9);
+		overflow: scroll;
+	}
+	@include media-tab {
+	}
+}
+/* --------------------------------------------------
+   メニューボタン
+ -------------------------------------------------- */
+.menu-btn {
+	display: inline-block;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 52px;
+	height: 52px;
+	padding: 0;
+	background-color: #fff;
+	border: none;
+	z-index: $zindex-menu-btn;
+	&:hover {
+		cursor: pointer;
+	}
+	@include media-tab {
+		display: none;
+	}
+}
+.menu-btn_line {
+	display: inline-block;
+	position: absolute;
+	left: 5px;
+	width: 40px;
+	height: 2px;
+	background-color: $link-color;
+	&:nth-child(1){
+		top: 16px;
+	}
+	&:nth-child(2){
+		top: 25px;
+	}
+	&:nth-child(3){
+		top: 34px;
+	}
+}
+/* --------------------------------------------------
+  メインナビゲーション
+-------------------------------------------------- */
+.gnav {
+	display: none;
+	.is-menu-inner & {
+		display: block;
+		padding: 70px 0 0 0;
+	}
+	@include media-tab {
+		display: block;
+	}
+	ul {
+		@include list-unstyled;
+		border-top: 1px solid #fff;
+		@include media-tab {
+			display: flex;
+			border-top: none;
+		}
+	}
+	li {
+		border-bottom: 1px solid #fff;
+		@include media-tab {
+			flex: 1 0 (100% / 5);
+			text-align: center;
+			border-bottom: none;
+		}
+	}
+	a {
+		display: block;
+		padding: 14px 10px;
+		background-color: $link-color;
+		color: #fff;
+		@include media-tab {
+			padding: 10px 0;
+			background-color: transparent;
+			color: $link-color;
+		}
+		&:hover,
+		&:focus {
+			background-color: $link-hover-color;
+			text-decoration: none;
+			@include media-tab {
+				background-color: transparent;
+				text-decoration: underline;
+			}
+		}
+	}
+}
