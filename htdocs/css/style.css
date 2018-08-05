@@ -12,7 +12,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
 }
 
 @-ms-viewport {
@@ -721,6 +721,167 @@ select.form-control:focus::-ms-value {
     -webkit-box-flex: 1;
         -ms-flex: auto;
             flex: auto;
+  }
+}
+
+/* ==================================================
+   page-example.html
+ ================================================== */
+.page-example.is-page-example {
+  overflow: hidden;
+}
+
+/* --------------------------------------------------
+   メニュー全体
+ -------------------------------------------------- */
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 70px;
+  background-color: #fff;
+}
+
+@media (min-width: 768px) {
+  .menu {
+    position: static;
+    height: auto;
+  }
+}
+
+/* --------------------------------------------------
+   SP版メニューを開いたときに背景となる
+ -------------------------------------------------- */
+.menu-inner.is-menu-inner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.9);
+  overflow: scroll;
+}
+
+/* --------------------------------------------------
+   メニューボタン
+ -------------------------------------------------- */
+.menu-btn {
+  display: inline-block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  background-color: #fff;
+  border: none;
+  z-index: 2;
+}
+
+.menu-btn:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .menu-btn {
+    display: none;
+  }
+}
+
+.menu-btn_line {
+  display: inline-block;
+  position: absolute;
+  left: 5px;
+  width: 40px;
+  height: 2px;
+  background-color: #0275d8;
+}
+
+.menu-btn_line:nth-child(1) {
+  top: 16px;
+}
+
+.menu-btn_line:nth-child(2) {
+  top: 25px;
+}
+
+.menu-btn_line:nth-child(3) {
+  top: 34px;
+}
+
+/* --------------------------------------------------
+  メインナビゲーション
+-------------------------------------------------- */
+.gnav {
+  display: none;
+}
+
+.is-menu-inner .gnav {
+  display: block;
+  padding: 70px 0 0 0;
+}
+
+@media (min-width: 768px) {
+  .gnav {
+    display: block;
+  }
+}
+
+.gnav ul {
+  padding-left: 0;
+  list-style: none;
+  border-top: 1px solid #fff;
+}
+
+@media (min-width: 768px) {
+  .gnav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-top: none;
+  }
+}
+
+.gnav li {
+  border-bottom: 1px solid #fff;
+}
+
+@media (min-width: 768px) {
+  .gnav li {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 20%;
+            flex: 1 0 20%;
+    text-align: center;
+    border-bottom: none;
+  }
+}
+
+.gnav a {
+  display: block;
+  padding: 14px 10px;
+  background-color: #0275d8;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .gnav a {
+    padding: 10px 0;
+    background-color: transparent;
+    color: #0275d8;
+  }
+}
+
+.gnav a:hover, .gnav a:focus {
+  background-color: #5bc0de;
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
+  .gnav a:hover, .gnav a:focus {
+    background-color: transparent;
+    text-decoration: underline;
   }
 }
 
