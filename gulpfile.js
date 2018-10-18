@@ -19,7 +19,7 @@ var path = {
 };
 
 gulp.task('compileHtml', function () {
-	return gulp.src(path.srcHtml + 'page/**/*.html')
+	return gulp.src(path.srcHtml + 'page/**/*.njk')
 	.pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
 	.pipe(nunjucksRender({
 		path: [path.srcHtml] // String or Array
@@ -57,7 +57,7 @@ gulp.task('serve', ['compileScss', 'compileHtml'], function(){
 
 gulp.task('watch', function(){
 	gulp.watch(path.srcScss + '**/*.scss', ['compileScss']);
-	gulp.watch(path.srcHtml + '**/*.html', ['compileHtml']);
+	gulp.watch(path.srcHtml + '**/*.njk', ['compileHtml']);
 })
 
 gulp.task('default', ['watch', 'serve']);
