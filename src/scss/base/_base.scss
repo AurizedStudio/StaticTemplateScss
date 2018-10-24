@@ -39,7 +39,7 @@ html {
 }
 
 // Shim for "new" HTML5 structural elements to display correctly (IE10, older browsers)
-article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
 }
 
@@ -87,8 +87,6 @@ hr {
 // Typography
 //
 
-// Remove top margins from headings
-//
 // By default, `<h1>`-`<h6>` all receive top and bottom margins. We nuke the top
 // margin for easier control within type scales as it avoids margin collapsing.
 h1, h2, h3, h4, h5, h6 {
@@ -191,7 +189,6 @@ a {
 	color: $link-color;
 	text-decoration: none;
 	background-color: transparent; // Remove the gray background on active links in IE 10.
-	-webkit-text-decoration-skip: objects; // Remove gaps in links underline in iOS 8+ and Safari 8+.
 	&:hover,
 	&:focus {
 		color: $link-hover-color;
@@ -245,7 +242,10 @@ img {
 }
 
 svg:not(:root) {
-	overflow: hidden; // Hide the overflow in IE
+	// Workaround for the SVG overflow bug in IE10/11 is still required.
+	// See https://github.com/twbs/bootstrap/issues/26878
+	overflow: hidden;
+	vertical-align: middle;
 }
 
 
