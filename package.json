@@ -6,13 +6,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "autoprefixer": "^9.2.1",
+    "autoprefixer": "^9.4.7",
     "browser-sync": "^2.26.3",
     "gulp": "^3.9.1",
     "gulp-csscomb": "^3.0.8",
     "gulp-notify": "^3.2.0",
     "gulp-nunjucks-render": "^2.2.2",
-    "gulp-plumber": "^1.2.0",
+    "gulp-plumber": "^1.2.1",
     "gulp-postcss": "^8.0.0",
     "gulp-replace": "^1.0.0",
     "gulp-sass": "^4.0.2",
