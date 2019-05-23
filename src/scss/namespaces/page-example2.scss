@@ -4,11 +4,12 @@
 /* --------------------------------------------------
    Grid
  -------------------------------------------------- */
-.magazine {
+.magazine { // grid: 'autoplace'にするとIE11で崩れる
 	@include media-tab {
 		display: grid;
-		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-template-columns: repeat(4,1fr);
 		grid-template-rows: auto auto auto;
+//		gap: 10px;
 	}
 }
 .magazine-item {
@@ -55,7 +56,19 @@
 .magazine-pickup__title {
 	margin: 0 0 4px 0;
 }
-
+.pic { // grid: 'autoplace'にすればIE11でも有効になる gapも有効になる
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	grid-template-rows: repeat(3,auto);
+	gap: 10px;
+}
+.pic-item {
+	margin: 0;
+}
+.pic img {
+	max-width: 100%;
+	height: auto;
+}
 /* --------------------------------------------------
    個別ページフアニメーション
  -------------------------------------------------- */
