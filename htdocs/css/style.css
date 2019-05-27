@@ -791,7 +791,7 @@ select.form-control:focus::-ms-value {
    page-example2.html （アニメーション/Grid 確認用）
  ================================================== */
 /* --------------------------------------------------
-   Grid
+   Grid magazine
  -------------------------------------------------- */
 @media (min-width: 768px) {
   .magazine {
@@ -887,6 +887,9 @@ select.form-control:focus::-ms-value {
   margin: 0 0 4px 0;
 }
 
+/* --------------------------------------------------
+   Grid pic
+ -------------------------------------------------- */
 .pic {
   display: -ms-grid;
   display: grid;
@@ -904,6 +907,50 @@ select.form-control:focus::-ms-value {
 .pic img {
   max-width: 100%;
   height: auto;
+}
+
+/* --------------------------------------------------
+   Grid layout
+ -------------------------------------------------- */
+.layout {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 10px minmax(100px, 1fr) 10px 2fr;
+  -ms-grid-columns: 1fr 10px 100px 10px 1fr;
+      grid-template: "head head head" 1fr "nav main main" minmax(100px, 1fr) "foot foot foot" 2fr/1fr 100px 1fr;
+  gap: 10px;
+  border: 1px solid #333;
+}
+
+.layout-head {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-area: head;
+  background-color: #cbe;
+}
+
+.layout-nav {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: nav;
+  background-color: #cb0;
+}
+
+.layout-main {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 3;
+  grid-area: main;
+  background-color: #cbc;
+}
+
+.layout-foot {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-area: foot;
+  background-color: #cba;
 }
 
 /* --------------------------------------------------

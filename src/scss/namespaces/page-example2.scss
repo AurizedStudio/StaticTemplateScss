@@ -2,7 +2,7 @@
    page-example2.html （アニメーション/Grid 確認用）
  ================================================== */
 /* --------------------------------------------------
-   Grid
+   Grid magazine
  -------------------------------------------------- */
 .magazine { // grid: 'autoplace'にするとIE11で崩れる
 	@include media-tab {
@@ -56,6 +56,9 @@
 .magazine-pickup__title {
 	margin: 0 0 4px 0;
 }
+/* --------------------------------------------------
+   Grid pic
+ -------------------------------------------------- */
 .pic { // grid: 'autoplace'にすればIE11でも有効になる gapも有効になる
 	display: grid;
 	grid-template-columns: repeat(3,1fr);
@@ -69,6 +72,37 @@
 	max-width: 100%;
 	height: auto;
 }
+/* --------------------------------------------------
+   Grid layout
+ -------------------------------------------------- */
+.layout {
+	display: grid;
+	grid-template:
+	"head head head" 1fr
+	"nav main main" minmax(100px,1fr)
+	"foot foot foot" 2fr /
+	1fr 100px 1fr;
+	gap: 10px;
+	border: 1px solid #333;
+}
+.layout-head {
+	grid-area: head;
+	background-color: #cbe;
+}
+.layout-nav {
+	grid-area: nav;
+	background-color: #cb0;
+}
+.layout-main {
+	grid-area: main;
+	background-color: #cbc;
+}
+.layout-foot {
+	grid-area: foot;
+	background-color: #cba;
+}
+
+
 /* --------------------------------------------------
    個別ページフアニメーション
  -------------------------------------------------- */
