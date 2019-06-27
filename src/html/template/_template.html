@@ -19,12 +19,18 @@
 <link href="//fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet">
 </head>
 <body class="{{bodyClass}}">
-<div class="wrap">
-{% if bodyClass == 'page-example2' %}
-{% include 'module/_head.html' %}
+
+{% if bodyClass == 'page-example' %}
+{% include 'module/_head1.html' %}
 {% endif %}
 
-<main>
+<div class="wrap">
+
+{% if bodyClass == 'page-example2' %}
+{% include 'module/_head2.html' %}
+{% endif %}
+
+<main class="main">
 {% block main %}
 {% endblock %}
 </main>

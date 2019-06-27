@@ -633,10 +633,6 @@ select.form-control:focus::-ms-value {
   }
 }
 
-.page-example.is-page-example {
-  overflow: hidden;
-}
-
 /* --------------------------------------------------
    メニュー全体
  -------------------------------------------------- */
@@ -645,29 +641,15 @@ select.form-control:focus::-ms-value {
   top: 0;
   right: 0;
   left: 0;
-  height: 70px;
-  background-color: #fff;
+  height: 75px;
+  background-color: #efefef;
 }
 
 @media (min-width: 768px) {
   .menu {
-    position: static;
     height: auto;
+    background-color: #fff;
   }
-}
-
-/* --------------------------------------------------
-   SP版メニューを開いたときに背景となる
- -------------------------------------------------- */
-.menu-inner.is-menu-inner {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 100vh;
-  background-color: rgba(255, 255, 255, 0.9);
-  overflow: scroll;
 }
 
 /* --------------------------------------------------
@@ -720,31 +702,89 @@ select.form-control:focus::-ms-value {
 /* --------------------------------------------------
   メインナビゲーション
 -------------------------------------------------- */
-.gnav {
-  display: none;
+.gnav[aria-hidden] {
+  transition: visibility .2s;
 }
 
-.is-menu-inner .gnav {
-  display: block;
-  padding: 70px 0 0 0;
+.gnav[aria-hidden] .gnav-backdrop {
+  transition: opacity .2s;
+}
+
+.gnav[aria-hidden] ul {
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+}
+
+.gnav[aria-hidden="false"] {
+  visibility: visible;
+}
+
+.gnav[aria-hidden="false"] .gnav-backdrop {
+  opacity: 1;
+}
+
+.gnav[aria-hidden="false"] ul {
+  -webkit-transform: translate(calc(100% - 72%), 0);
+          transform: translate(calc(100% - 72%), 0);
 }
 
 @media (min-width: 768px) {
-  .gnav {
-    display: block;
+  .gnav[aria-hidden="false"] ul {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+
+.gnav[aria-hidden="true"] {
+  visibility: hidden;
+}
+
+@media (min-width: 768px) {
+  .gnav[aria-hidden="true"] {
+    visibility: visible;
+  }
+}
+
+.gnav[aria-hidden="true"] .gnav-backdrop {
+  opacity: 0;
+}
+
+.gnav[aria-hidden="true"] ul {
+  -webkit-transform: translate(calc(100% + 28%), 0);
+          transform: translate(calc(100% + 28%), 0);
+}
+
+@media (min-width: 768px) {
+  .gnav[aria-hidden="true"] ul {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
   }
 }
 
 .gnav ul {
   padding-left: 0;
   list-style: none;
-  border-top: 1px solid #fff;
+  margin: 0;
+  position: relative;
+  top: 76px;
+  width: 78%;
+  max-height: calc(100vh - 140px);
+  background-color: #3d3d3d;
+  color: #fff;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media (min-width: 768px) {
   .gnav ul {
     display: flex;
-    border-top: none;
+    position: static;
+    width: auto;
+    max-height: none;
+    background-color: transparent;
+    color: #000;
+    overflow: visible;
   }
 }
 
@@ -785,6 +825,32 @@ select.form-control:focus::-ms-value {
     background-color: transparent;
     text-decoration: underline;
   }
+}
+
+/* --------------------------------------------------
+   バックドロップ
+ -------------------------------------------------- */
+.gnav-backdrop {
+  position: fixed;
+  top: 76px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+@media (min-width: 768px) {
+  .gnav-backdrop {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------
+   メイン
+ -------------------------------------------------- */
+.page-example .main {
+  margin: 70px 0 0 0;
 }
 
 /* ==================================================

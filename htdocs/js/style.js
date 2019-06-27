@@ -4,18 +4,31 @@
 $(function () {
 	'use strict'
 	var menuBtn = $('.menu-btn');
-	var menuInner = $('.menu-inner');
-	var pageID = $('.page-example');
+	var gnav = $('.gnav');
+	var gBackDrop = $('.gnav-backdrop');
 	var flagBtn = false;
+
 	menuBtn.on('click', function () {
+		area();
+	})
+	gBackDrop.on('click', function () {
+		area();
+	})
+
+	gBackDrop.on('touchmove', function (e) {
+		e.preventDefault();
+	})
+
+	function area () {
 		if (flagBtn) { // クローズ
-			menuInner.removeClass('is-menu-inner');
-			pageID.removeClass('is-page-example')
+			menuBtn.attr('aria-expanded', 'false');
+			gnav.attr('aria-hidden', 'true');
 			flagBtn = false;
 		} else { // オープン
-			menuInner.addClass('is-menu-inner');
-			pageID.addClass('is-page-example');
+			menuBtn.attr('aria-expanded', 'true');
+			gnav.attr('aria-hidden', 'false');
 			flagBtn = true;
 		}
-	})
+	}
+
 });
