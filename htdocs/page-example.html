@@ -19,14 +19,13 @@
 <link href="//fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet">
 </head>
 <body class="page-example">
-<div class="wrap">
-<main>
-<div class="menu">
+<nav class="menu" role="navigation" aria-lable="メインナビ">
 	<div class="menu-inner">
-		<button type="button" class="menu-btn">
+		<button type="button" class="menu-btn" aria-haspopup="true" aria-controls="navi" aria-expanded="false">
 			<span class="menu-btn_line"></span><span class="menu-btn_line"></span><span class="menu-btn_line"></span>
 		</button>
-		<nav class="gnav">
+		<div class="gnav" id="navi" aria-hidden="true">
+			<div class="gnav-backdrop"></div>
 			<ul>
 				<li><a href="#">グロナビメニュー１</a></li>
 				<li><a href="#">メニュー２</a></li>
@@ -34,9 +33,11 @@
 				<li><a href="#">メニュー４</a></li>
 				<li><a href="#">メニュー５</a></li>
 			</ul>
-		</nav>
+		</div>
 	</div>
-</div>
+</nav>
+<div class="wrap">
+<main class="main">
 <p>page-exampleのメインコンテンツ1</p>
 <p>page-exampleのメインコンテンツ2</p>
 <p>page-exampleのメインコンテンツ3</p>
