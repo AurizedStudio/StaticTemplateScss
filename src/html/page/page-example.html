@@ -19,16 +19,16 @@
 <p>page-exampleのメインコンテンツ4</p>
 <p>page-exampleのメインコンテンツ5</p>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn" data-toggle="modal" data-target="#myModal">モーダル起動</button>
-
+<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">モーダル起動</button>
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
         ...
@@ -44,6 +44,30 @@
 <p>page-exampleのメインコンテンツ6</p>
 <p>page-exampleのメインコンテンツ7</p>
 <p>page-exampleのメインコンテンツ8</p>
+
+<!-- Nav tabs -->
+<ul class="nav" role="tablist">
+  <li class="nav_item">
+    <a class="nav_link active" id="nav_home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+  </li>
+  <li class="nav_item">
+    <a class="nav_link" id="nav_profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+  </li>
+  <li class="nav_item">
+    <a class="nav_link" id="nav_message-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Messages</a>
+  </li>
+  <li class="nav_item">
+    <a class="nav_link" id="nav_settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Settings</a>
+  </li>
+</ul>
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-content_pane active" id="home" role="tabpanel" aria-labelledby="nav_home-tab">Home</div>
+  <div class="tab-content_pane" id="profile" role="tabpanel" aria-labelledby="nav_profile-tab">Profile<br>profile</div>
+  <div class="tab-content_pane" id="messages" role="tabpanel" aria-labelledby="nav_message-tab">Messages<br>message<br>message</div>
+  <div class="tab-content_pane" id="settings" role="tabpanel" aria-labelledby="nav_settings-tab">Settings<br>settings<br>settings<br>setting</div>
+</div>
+
 <p>page-exampleのメインコンテンツ9</p>
 <p>page-exampleのメインコンテンツ10</p>
 <p>page-exampleのメインコンテンツ11</p>
