@@ -42,7 +42,7 @@ gulp.task('compileScss', function() {
 		.pipe(browserSync.stream());
 });
 
-gulp.task('serve', ['compileScss', 'compileHtml'], function(){
+gulp.task('serve', function(){
 	browserSync.init({
 		server: {
 			baseDir: path.dest,
@@ -56,8 +56,10 @@ gulp.task('serve', ['compileScss', 'compileHtml'], function(){
 });
 
 gulp.task('watch', function(){
-	gulp.watch(path.srcScss + '**/*.scss', ['compileScss']);
-	gulp.watch(path.srcHtml + '**/*.html', ['compileHtml']);
-})
+	gulp.watch(path.srcScss + '**/*.scss', gulp.task('compileScss'));
+	gulp.watch(path.srcHtml + '**/*.html', gulp.task('compileHtml'));
+});
 
-gulp.task('default', ['watch', 'serve']);
+gulp.task('default',
+	gulp.parallel('watch', 'serve')
+);
