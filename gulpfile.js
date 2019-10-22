@@ -35,7 +35,7 @@ gulp.task('compileScss', function() {
 		.pipe(sourcemaps.init())
 		.pipe(sass({outputStyle: 'expanded'}))
 		.pipe(postcss([ autoprefixer({grid: 'no-autoplace'}) ]))
-		// .pipe(replace(/\n+/g, '\n')) // 2行以上の改行を1行にする 納品時に整形する場合に使用
+		.pipe(replace(/\n+/g, '\n')) // 2行以上の改行を1行にする 納品時に整形する場合に使用
 		// .pipe(csscomb()) // 納品時に整形する場合に使用
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(path.destCss))
