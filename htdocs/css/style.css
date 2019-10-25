@@ -652,6 +652,7 @@ select.form-control:focus::-ms-value {
   left: 0;
   height: 75px;
   background-color: #efefef;
+  z-index: 2;
 }
 @media (min-width: 768px) {
   .menu {
@@ -672,7 +673,6 @@ select.form-control:focus::-ms-value {
   padding: 0;
   background-color: #fff;
   border: none;
-  z-index: 2;
 }
 .menu-btn:hover {
   cursor: pointer;
@@ -731,10 +731,12 @@ select.form-control:focus::-ms-value {
 }
 .gnav[aria-hidden="true"] {
   visibility: hidden;
+  height: 1px;
 }
 @media (min-width: 768px) {
   .gnav[aria-hidden="true"] {
     visibility: visible;
+    height: auto;
   }
 }
 .gnav[aria-hidden="true"] .gnav-backdrop {
