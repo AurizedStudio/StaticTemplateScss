@@ -19,6 +19,7 @@
 	left: 0;
 	height: 75px;
 	background-color: #efefef;
+	z-index: $zindex-menu;
 	@include media-tab {
 		height: auto;
 		background-color: #fff;
@@ -37,7 +38,6 @@
 	padding: 0;
 	background-color: #fff;
 	border: none;
-	z-index: $zindex-menu-btn;
 	&:hover {
 		cursor: pointer;
 	}
