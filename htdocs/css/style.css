@@ -952,6 +952,7 @@ select.form-control:focus::-ms-value {
 .magazine-item__title,
 .magazine-pickup__title {
   margin: 0 0 4px 0;
+  font-size: 1.625rem;
 }
 /* --------------------------------------------------
    Grid pic

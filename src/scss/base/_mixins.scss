@@ -5,6 +5,12 @@
 		clear: both;
 	}
 }
+// font-size
+// 14px -> @include font-size(14)
+@mixin font-size($size, $base: 16){
+	font-size: $size / $base + rem;
+}
+
 
 // CSS image replacement
 @mixin text-hide {
