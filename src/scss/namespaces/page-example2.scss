@@ -55,7 +55,7 @@
 .magazine-item__title,
 .magazine-pickup__title {
 	margin: 0 0 4px 0;
-	@include font-size(26);
+	@include rem(26);
 }
 /* --------------------------------------------------
    Grid pic

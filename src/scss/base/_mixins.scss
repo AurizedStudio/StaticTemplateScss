@@ -6,9 +6,9 @@
 	}
 }
 // font-size
-// 14px -> @include font-size(14)
-@mixin font-size($size, $base: 16){
-	font-size: $size / $base + rem;
+// 14px -> @include rem(14) -> font-size:0.875rem
+@mixin rem($size, $base: 16){
+	font-size: $size / $base * 1rem;
 }
 
 
